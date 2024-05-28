@@ -26,7 +26,7 @@ GLColor colors[6] = {
 GLColor color = colors[0];
 
 void init() {
-    glClearColor(0.0f, 0.0f, 0.0f, 0);
+    glClearColor(1.0f, 1.0f, 1.0f, 0);
     glColor3f(color.red, color.green, color.blue);
     glPointSize(1.0f);
     glMatrixMode(GL_PROJECTION);
@@ -96,6 +96,16 @@ void draw_circle(Point pC, GLfloat radius) {
     glFlush();
 }
 
+void setupDisplay(Point p1, Point p2) {
+    glClear(GL_COLOR_BUFFER_BIT);
+    glColor3f(color.red, color.green, color.blue);
+    glBegin(GL_LINES);
+    glVertex2i(p1.x, p1.y);
+    glVertex2i(p2.x, p2.y);
+    glEnd();
+    glFlush();
+}
+
 void draw_ellipse(Point pC, GLfloat radiusY, GLfloat radiusX) {
     GLfloat step = 1/radiusX;
     GLfloat x, y;
@@ -144,17 +154,19 @@ void mainMenuHandler(int choice) {
 }
 
 void importplayer() {
-
-
-
+  std::cout << "importing player" << std::endl;
+    printf("damn");
 }
 
 void exportplayer() {
 
 }
 
-void sbmtwoholder(int secim) {
 
+
+void sbmtwoholder(int secim) {
+    Point p1 = {10, 100};	// Line start point
+    Point p2 = {200, 100};	// Line end point
     switch (secim) {
 
         case 1:
@@ -162,10 +174,8 @@ void sbmtwoholder(int secim) {
             break;
 
         case 2:
-            exportplayer();
+            setupDisplay(p1, p2);
             break;
-
-
     }
 
 }
@@ -198,6 +208,7 @@ int main(int argc, char **argv) {
 
     glutCreateMenu(mainMenuHandler);
     glutAddSubMenu("Change Color", subMenu);
+    glutAddSubMenu("Player", sbmtwo);
     glutAddMenuEntry("Pixel", 1);
     glutAddMenuEntry("Line", 2);
     glutAddMenuEntry("Circle", 3);
