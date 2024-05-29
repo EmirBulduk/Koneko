@@ -99,12 +99,15 @@ void draw_circle(Point pC, GLfloat radius) {
 void setupDisplay(Point p1, Point p2) {
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(color.red, color.green, color.blue);
+    glLineWidth(20);
     glBegin(GL_LINES);
     glVertex2i(p1.x, p1.y);
     glVertex2i(p2.x, p2.y);
     glEnd();
     glFlush();
 }
+
+
 
 void draw_ellipse(Point pC, GLfloat radiusY, GLfloat radiusX) {
     GLfloat step = 1/radiusX;
@@ -164,8 +167,8 @@ void exportplayer() {
 
 
 void sbmtwoholder(int secim) {
-    Point p1 = {200, 10};	// Line start point
-    Point p2 = {200, 200};	// Line end point
+    Point p1 = {600, 0};	// Line start point
+    Point p2 = {600, 800};	// Line end point
     switch (secim) {
 
         case 1:
