@@ -1,7 +1,7 @@
 #include <iostream>
 #include <gl/glut.h>
 #include <cmath>
-
+#include "neuralnetwork.h"
 
 struct Point {
     GLint x;
@@ -14,19 +14,20 @@ struct GLColor {
     GLfloat blue;
 };
 
-GLColor colors[6] = {
-        {0.0f, 0.0f, 0.0f},
+GLColor colors[7] = {
+        {1.0f, 1.0f, 1.0f},
         {1.0f, 0.0f, 0.0f},
         {0.0f, 1.0f, 0.0f},
         {0.0f, 0.0f, 1.0f},
         {1.0f, 1.0f, 0.0f},
-        {1.0f, 0.0f, 1.0f}
+        {1.0f, 0.0f, 1.0f},
+        {1.0f, 0.5f, 0.0f}
 };
 
 GLColor color = colors[0];
 
 void init() {
-    glClearColor(1.0f, 1.0f, 1.0f, 0);
+    glClearColor(0.0f, 0.0f, 0.0f, 0);
     glColor3f(color.red, color.green, color.blue);
     glPointSize(1.0f);
     glMatrixMode(GL_PROJECTION);
@@ -126,31 +127,19 @@ void draw_ellipse(Point pC, GLfloat radiusY, GLfloat radiusX) {
 }
 
 void mainMenuHandler(int choice) {
-    Point p = {320, 240};	// draw_pixel
-    Point p1 = {10, 100};	// draw_line
-    Point p2 = {200, 100};	// --
+    Point p = {320, 240};
+    Point p1 = {10, 100};
+    Point p2 = {200, 100};
 
-    Point pC = {600, 450};	// Circle center point
-    GLfloat radius = 200;	// Circle radius
+    Point pC = {600, 450};
+    GLfloat radius = 200;
 
     switch(choice) {
-        case 1:	// Pixel
+        case 1:
             draw_pixel(p);
             break;
 
-        case 2:	// Line
-            draw_dda(p1, p2);
-            break;
-
-        case 3:	// Circle
-            draw_circle(pC, radius);
-            break;
-
-        case 4: // Ellipse
-            draw_ellipse(pC, 60.0f, 200.0f);
-            break;
-
-        case 5:	// Exit
+        case 2:
             exit(0);
             break;
     }
@@ -158,7 +147,7 @@ void mainMenuHandler(int choice) {
 
 void importplayer() {
   std::cout << "importing player" << std::endl;
-    printf("damn");
+    printf("in proc");
 }
 
 void exportplayer() {
@@ -167,8 +156,8 @@ void exportplayer() {
 
 
 void sbmtwoholder(int secim) {
-    Point p1 = {600, 0};	// Line start point
-    Point p2 = {600, 800};	// Line end point
+    Point p1 = {600, 0};
+    Point p2 = {600, 800};
     switch (secim) {
 
         case 1:
@@ -203,6 +192,7 @@ int main(int argc, char **argv) {
     glutAddMenuEntry("Blue", 3);
     glutAddMenuEntry("Yellow", 4);
     glutAddMenuEntry("Purple", 5);
+    glutAddMenuEntry("Orange", 6);
 
     int sbmtwo = glutCreateMenu(sbmtwoholder);
     glutAddMenuEntry("import", 1);
@@ -212,10 +202,7 @@ int main(int argc, char **argv) {
     glutAddSubMenu("Change Color", subMenu);
     glutAddSubMenu("Player", sbmtwo);
     glutAddMenuEntry("Pixel", 1);
-    glutAddMenuEntry("Line", 2);
-    glutAddMenuEntry("Circle", 3);
-    glutAddMenuEntry("Ellipse", 4);
-    glutAddMenuEntry("Exit", 5);
+    glutAddMenuEntry("Exit", 2);
 
     glutAttachMenu(GLUT_RIGHT_BUTTON);
     glutMainLoop();
