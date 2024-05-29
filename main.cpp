@@ -163,10 +163,9 @@ void exportplayer() {
 }
 
 
-
 void sbmtwoholder(int secim) {
-    Point p1 = {10, 100};	// Line start point
-    Point p2 = {200, 100};	// Line end point
+    Point p1 = {200, 10};	// Line start point
+    Point p2 = {200, 200};	// Line end point
     switch (secim) {
 
         case 1:
@@ -190,7 +189,7 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(0,0);
     glutInitWindowSize(1200, 800);
-    glutCreateWindow("OpenGL Circle and Menus");
+    glutCreateWindow("KONEKO");
     glutDisplayFunc(display);
     init();
 
