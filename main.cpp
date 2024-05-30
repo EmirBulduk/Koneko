@@ -81,14 +81,14 @@ void draw_dda(Point p1, Point p2) {
 }
 
 void draw_circle(Point pC, GLfloat radius) {
-    GLfloat step = 1/radius;
+    GLfloat step = 1 / radius;
     GLfloat x, y;
 
     glClear(GL_COLOR_BUFFER_BIT);
     glColor3f(color.red, color.green, color.blue);
     glBegin(GL_POINTS);
 
-    for(GLfloat theta = 0; theta <= 360; theta += step) {
+    for (GLfloat theta = 0; theta <= 360; theta += step) {
         x = pC.x + (radius * cos(theta));
         y = pC.y + (radius * sin(theta));
         glVertex2i(x, y);
@@ -98,14 +98,35 @@ void draw_circle(Point pC, GLfloat radius) {
 }
 
 void setupDisplay(Point p1, Point p2) {
+
+    GLColor stglColor = {1.0f, 1.0f, 1.0f};
+
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(color.red, color.green, color.blue);
-    glLineWidth(20);
+    glColor3f(stglColor.red, stglColor.green, stglColor.blue);
+    glLineWidth(8.0f);
     glBegin(GL_LINES);
     glVertex2i(p1.x, p1.y);
     glVertex2i(p2.x, p2.y);
     glEnd();
     glFlush();
+
+    Point p3 = {100, 100};
+    Point p4 = {200, 200};
+    Point p5 = {100, 200};
+    Point p6 = {200, 100};
+
+
+    glBegin(GL_POLYGON);
+    glVertex2d(p3.x, p3.y);
+    glVertex2d(p4.x, p4.y);
+    glVertex2d(p5.x, p5.y);
+    glVertex2d(p6.x, p6.y);
+
+    glEnd();
+    glFlush();
+
+
+
 }
 
 
@@ -150,14 +171,11 @@ void importplayer() {
     printf("in proc");
 }
 
-void exportplayer() {
-
-}
 
 
 void sbmtwoholder(int secim) {
-    Point p1 = {600, 0};
-    Point p2 = {600, 800};
+    Point p1 = {400, 0};
+    Point p2 = {400, 800};
     switch (secim) {
 
         case 1:
@@ -168,7 +186,6 @@ void sbmtwoholder(int secim) {
             setupDisplay(p1, p2);
             break;
     }
-
 }
 
 
@@ -181,7 +198,7 @@ int main(int argc, char **argv) {
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(0,0);
     glutInitWindowSize(1200, 800);
-    glutCreateWindow("KONEKO");
+    glutCreateWindow("BULDUK");
     glutDisplayFunc(display);
     init();
 
@@ -196,11 +213,11 @@ int main(int argc, char **argv) {
 
     int sbmtwo = glutCreateMenu(sbmtwoholder);
     glutAddMenuEntry("import", 1);
-    glutAddMenuEntry("export", 2);
+    glutAddMenuEntry("SetupDisplay", 2);
 
     glutCreateMenu(mainMenuHandler);
+    glutAddSubMenu("Main", sbmtwo);
     glutAddSubMenu("Change Color", subMenu);
-    glutAddSubMenu("Player", sbmtwo);
     glutAddMenuEntry("Pixel", 1);
     glutAddMenuEntry("Exit", 2);
 
