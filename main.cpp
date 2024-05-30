@@ -1,6 +1,7 @@
 #include <iostream>
 #include <gl/glut.h>
 #include <cmath>
+#include <string>
 #include "neuralnetwork.h"
 
 struct Point {
@@ -13,6 +14,15 @@ struct GLColor {
     GLfloat green;
     GLfloat blue;
 };
+
+void drawText(const char *text, int x, int y) {
+    glRasterPos2i(x, y);
+
+    while (*text) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *text);
+        text++;
+    }
+}
 
 GLColor colors[7] = {
         {1.0f, 1.0f, 1.0f},
@@ -80,6 +90,8 @@ void draw_dda(Point p1, Point p2) {
 
 }
 
+
+
 void draw_circle(Point pC, GLfloat radius) {
     GLfloat step = 1 / radius;
     GLfloat x, y;
@@ -97,6 +109,8 @@ void draw_circle(Point pC, GLfloat radius) {
     glFlush();
 }
 
+
+
 void setupDisplay(Point p1, Point p2) {
 
     GLColor stglColor = {1.0f, 1.0f, 1.0f};
@@ -110,21 +124,27 @@ void setupDisplay(Point p1, Point p2) {
     glEnd();
     glFlush();
 
-    Point p3 = {100, 100};
-    Point p4 = {200, 200};
-    Point p5 = {100, 200};
-    Point p6 = {200, 100};
 
+
+    Point p3 = {50, 50};
+    Point p4 = {100, 100};
+    Point p5 = {50, 100};
+    Point p6 = {100, 50};
 
     glBegin(GL_POLYGON);
+    glColor3f(1.0f, 0.0f, 1.0f);
     glVertex2d(p3.x, p3.y);
-    glVertex2d(p4.x, p4.y);
-    glVertex2d(p5.x, p5.y);
-    glVertex2d(p6.x, p6.y);
+    glColor3f(2.0f, 1.0f, 1.0f);
 
+    glVertex2d(p4.x, p4.y);
+    glColor3f(1.0f, 0.0f, 1.0f);
+    glVertex2d(p5.x, p5.y);
+    glColor3f(2.0f, 1.0f, 1.0f);
+    glVertex2d(p6.x, p6.y);
     glEnd();
     glFlush();
 
+    drawText("POWERED BY Sentinel Systems", 500, 20);
 
 
 }
