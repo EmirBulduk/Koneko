@@ -1,8 +1,23 @@
-#include <iostream>
+#include <GL/glew.h>
+#include <windows.h>
+#include <GL/freeglut.h>
+#include <GLFW/glfw3.h>
+#include <GL/glew.h>
+#include <gl/gl.h>
+#include <gl/glu.h>
 #include <gl/glut.h>
+#include <png.h>
 #include <cmath>
 #include <string>
 #include "neuralnetwork.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb/stb_image.h"
+#include <iostream>
+#include <tchar.h>
+#include <io.h>
+
+GLuint texture;
+
 
 struct Point {
     GLint x;
@@ -14,6 +29,48 @@ struct GLColor {
     GLfloat green;
     GLfloat blue;
 };
+
+
+GLuint loadTexture(const char* filename) {
+    int width, height, nrChannels;
+    unsigned char *data = stbi_load(filename, &width, &height, &nrChannels, 0);
+    if (!data) {
+        std::cerr << "Failed to load texture: " << filename << std::endl;
+        std::cerr << "stbi_failure_reason: " << stbi_failure_reason() << std::endl;
+        exit(1);
+    }
+
+    GLuint textureID;
+    glGenTextures(1, &textureID);
+    glBindTexture(GL_TEXTURE_2D, textureID);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, nrChannels == 4 ? GL_RGBA : GL_RGB, width, height, 0, nrChannels == 4 ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    stbi_image_free(data);
+
+    return textureID;
+}
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); glVertex2f(-0.5f, -0.5f);  // Bottom-left corner
+    glTexCoord2f(1.0f, 0.0f); glVertex2f(0.5f, -0.5f);   // Bottom-right corner
+    glTexCoord2f(1.0f, 1.0f); glVertex2f(0.5f, 0.5f);    // Top-right corner
+    glTexCoord2f(0.0f, 1.0f); glVertex2f(-0.5f, 0.5f);   // Top-left corner
+    glEnd();
+
+    glutSwapBuffers();
+}
 
 void drawText(const char *text, int x, int y) {
     glRasterPos2i(x, y);
@@ -43,10 +100,8 @@ void init() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0.0, 1200.0, 0.0, 800.0);
-}
-
-void display(void) {
-
+    glEnable(GL_TEXTURE_2D);
+    texture = loadTexture("app.png");
 }
 
 void draw_pixel(Point p) {
@@ -90,8 +145,6 @@ void draw_dda(Point p1, Point p2) {
 
 }
 
-
-
 void draw_circle(Point pC, GLfloat radius) {
     GLfloat step = 1 / radius;
     GLfloat x, y;
@@ -126,10 +179,10 @@ void setupDisplay(Point p1, Point p2) {
 
 
 
-    Point p3 = {50, 50};
-    Point p4 = {100, 100};
-    Point p5 = {50, 100};
-    Point p6 = {100, 50};
+    Point p3 = {25, 25};
+    Point p4 = {50, 50};
+    Point p5 = {25, 50};
+    Point p6 = {50, 25};
 
     glBegin(GL_POLYGON);
     glColor3f(1.0f, 0.0f, 1.0f);
@@ -208,19 +261,59 @@ void sbmtwoholder(int secim) {
     }
 }
 
+void glutSetWindowTitle(char *name);
 
 void subMenuHandler(int choice) {
     color = colors[choice];
 }
+void glutSetIconTitle(char *name);
 
-int main(int argc, char **argv) {
+void SetWindowIcon(HWND hwnd, HICON icon) {
+    SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)icon);
+    SendMessage(hwnd, WM_SETICON, ICON_SMALL, (LPARAM)icon);
+}
+
+HICON LoadIconFromFile(const char* filename) {
+    return (HICON)LoadImage(NULL, filename, IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
+}
+
+
+
+
+void initGL() {
+    glewExperimental = GL_TRUE;
+    GLenum err = glewInit();
+    if (GLEW_OK != err) {
+        std::cerr << "Error: " << glewGetErrorString(err) << std::endl;
+        exit(1);
+    }
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glEnable(GL_TEXTURE_2D);
+
+    // Print working directory
+    char cwd[1024];
+    if (_getcwd(cwd, sizeof(cwd)) != NULL) {
+        std::cout << "Current working directory: " << cwd << std::endl;
+    } else {
+        perror("_getcwd error");
+    }
+
+    // Load texture
+    const char* imagePath = "app.png";  // Update the path if necessary
+    std::cout << "Loading texture from: " << imagePath << std::endl;
+    texture = loadTexture(imagePath);
+    std::cout << "Texture loaded successfully" << std::endl;
+}
+
+
+int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
     glutInitWindowPosition(0,0);
     glutInitWindowSize(1200, 800);
     glutCreateWindow("BULDUK");
     glutDisplayFunc(display);
-    init();
+    initGL();
 
     int subMenu = glutCreateMenu(subMenuHandler);
     glutAddMenuEntry("Default", 0);

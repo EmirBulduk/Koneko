@@ -36,7 +36,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 7,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
@@ -48,46 +48,58 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 11,
+				"line" : 19,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 12,
+				"line" : 20,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 21,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 6,
 				"file" : 1,
-				"line" : 4,
+				"line" : 8,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 0,
 				"line" : 859,
-				"parent" : 5
+				"parent" : 7
 			},
 			{
 				"file" : 3,
-				"parent" : 6
+				"parent" : 8
 			},
 			{
 				"command" : 4,
 				"file" : 3,
 				"line" : 1,
-				"parent" : 7
+				"parent" : 9
 			},
 			{
 				"file" : 2,
-				"parent" : 8
+				"parent" : 10
 			},
 			{
 				"command" : 3,
 				"file" : 2,
 				"line" : 60,
-				"parent" : 9
+				"parent" : 11
 			}
 		]
 	},
@@ -98,6 +110,13 @@
 			[
 				{
 					"fragment" : "-g -fdiagnostics-color=always"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 6,
+					"define" : "GLFW_DLL"
 				}
 			],
 			"includes" : 
@@ -145,13 +164,33 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 10,
+				"backtrace" : 4,
+				"fragment" : "C:\\Users\\buldu\\.vcpkg-clion\\vcpkg\\installed\\x64-windows\\debug\\lib\\glew32d.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "C:\\Users\\buldu\\.vcpkg-clion\\vcpkg\\installed\\x64-windows\\lib\\soil2.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "C:\\Users\\buldu\\.vcpkg-clion\\vcpkg\\installed\\x64-windows\\debug\\lib\\glfw3dll.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
 				"fragment" : "-lwinmm",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 10,
+				"backtrace" : 12,
 				"fragment" : "-lgdi32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "-lopengl32",
 				"role" : "libraries"
 			},
 			{
@@ -182,7 +221,8 @@
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				2
+				2,
+				3
 			]
 		}
 	],
@@ -203,6 +243,11 @@
 		{
 			"backtrace" : 2,
 			"path" : "neuralnetwork.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
+			"path" : "stb/stb_image.h",
 			"sourceGroupIndex" : 1
 		}
 	],
