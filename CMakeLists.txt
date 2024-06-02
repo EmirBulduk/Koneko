@@ -10,7 +10,9 @@ find_package(FreeGLUT CONFIG REQUIRED)
 add_executable(koneko main.cpp
         neuralnetwork.cpp
         neuralnetwork.h
-        stb/stb_image.h)
+        stb/stb_image.h
+        LoadingMenu.cpp
+        LoadingMenu.h)
 
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${FREEGLUT_INCLUDE_DIR})

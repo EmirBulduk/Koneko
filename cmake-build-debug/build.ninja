@@ -65,6 +65,14 @@ build CMakeFiles/koneko.dir/neuralnetwork.cpp.obj: CXX_COMPILER__koneko_unscanne
   OBJECT_DIR = CMakeFiles\koneko.dir
   OBJECT_FILE_DIR = CMakeFiles\koneko.dir
 
+build CMakeFiles/koneko.dir/LoadingMenu.cpp.obj: CXX_COMPILER__koneko_unscanned_Debug C$:/Users/buldu/CLionProjects/Koneko/LoadingMenu.cpp || cmake_object_order_depends_target_koneko
+  DEFINES = -DGLFW_DLL
+  DEP_FILE = CMakeFiles\koneko.dir\LoadingMenu.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/include
+  OBJECT_DIR = CMakeFiles\koneko.dir
+  OBJECT_FILE_DIR = CMakeFiles\koneko.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target koneko
@@ -73,7 +81,7 @@ build CMakeFiles/koneko.dir/neuralnetwork.cpp.obj: CXX_COMPILER__koneko_unscanne
 #############################################
 # Link the executable koneko.exe
 
-build koneko.exe: CXX_EXECUTABLE_LINKER__koneko_Debug CMakeFiles/koneko.dir/main.cpp.obj CMakeFiles/koneko.dir/neuralnetwork.cpp.obj | C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/freeglutd.lib C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/glew32d.lib C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/lib/soil2.lib C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/glfw3dll.lib
+build koneko.exe: CXX_EXECUTABLE_LINKER__koneko_Debug CMakeFiles/koneko.dir/main.cpp.obj CMakeFiles/koneko.dir/neuralnetwork.cpp.obj CMakeFiles/koneko.dir/LoadingMenu.cpp.obj | C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/freeglutd.lib C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/glew32d.lib C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/lib/soil2.lib C$:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/glfw3dll.lib
   FLAGS = -g
   LINK_LIBRARIES = C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/freeglutd.lib  -lopengl32  -lglu32  C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/glew32d.lib  C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/lib/soil2.lib  C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/debug/lib/glfw3dll.lib  -lwinmm  -lgdi32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\koneko.dir

@@ -57,7 +57,7 @@ GLuint loadTexture(const char* filename) {
     return textureID;
 }
 
-void display() {
+void olddisplay() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     glBindTexture(GL_TEXTURE_2D, texture);
@@ -95,13 +95,7 @@ GLColor color = colors[0];
 
 void init() {
     glClearColor(0.0f, 0.0f, 0.0f, 0);
-    glColor3f(color.red, color.green, color.blue);
-    glPointSize(1.0f);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0.0, 1200.0, 0.0, 800.0);
-    glEnable(GL_TEXTURE_2D);
-    texture = loadTexture("app.png");
+
 }
 
 void draw_pixel(Point p) {
@@ -168,21 +162,10 @@ void setupDisplay(Point p1, Point p2) {
 
     GLColor stglColor = {1.0f, 1.0f, 1.0f};
 
-    glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(stglColor.red, stglColor.green, stglColor.blue);
-    glLineWidth(8.0f);
-    glBegin(GL_LINES);
-    glVertex2i(p1.x, p1.y);
-    glVertex2i(p2.x, p2.y);
-    glEnd();
-    glFlush();
-
-
-
-    Point p3 = {25, 25};
-    Point p4 = {50, 50};
-    Point p5 = {25, 50};
-    Point p6 = {50, 25};
+    Point p3 = {50, 50};
+    Point p4 = {100, 100};
+    Point p5 = {50, 100};
+    Point p6 = {100, 50};
 
     glBegin(GL_POLYGON);
     glColor3f(1.0f, 0.0f, 1.0f);
@@ -201,6 +184,7 @@ void setupDisplay(Point p1, Point p2) {
 
 
 }
+
 
 
 
@@ -240,7 +224,7 @@ void mainMenuHandler(int choice) {
 }
 
 void importplayer() {
-  std::cout << "importing player" << std::endl;
+    std::cout << "importing player" << std::endl;
     printf("in proc");
 }
 
@@ -280,31 +264,6 @@ HICON LoadIconFromFile(const char* filename) {
 
 
 
-void initGL() {
-    glewExperimental = GL_TRUE;
-    GLenum err = glewInit();
-    if (GLEW_OK != err) {
-        std::cerr << "Error: " << glewGetErrorString(err) << std::endl;
-        exit(1);
-    }
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glEnable(GL_TEXTURE_2D);
-
-    // Print working directory
-    char cwd[1024];
-    if (_getcwd(cwd, sizeof(cwd)) != NULL) {
-        std::cout << "Current working directory: " << cwd << std::endl;
-    } else {
-        perror("_getcwd error");
-    }
-
-    // Load texture
-    const char* imagePath = "app.png";  // Update the path if necessary
-    std::cout << "Loading texture from: " << imagePath << std::endl;
-    texture = loadTexture(imagePath);
-    std::cout << "Texture loaded successfully" << std::endl;
-}
-
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
@@ -312,7 +271,7 @@ int main(int argc, char** argv) {
     glutInitWindowPosition(0,0);
     glutInitWindowSize(1200, 800);
     glutCreateWindow("BULDUK");
-    glutDisplayFunc(display);
+    glutDisplayFunc(olddisplay);
     initGL();
 
     int subMenu = glutCreateMenu(subMenuHandler);
@@ -333,6 +292,7 @@ int main(int argc, char** argv) {
     glutAddSubMenu("Change Color", subMenu);
     glutAddMenuEntry("Pixel", 1);
     glutAddMenuEntry("Exit", 2);
+
 
     glutAttachMenu(GLUT_RIGHT_BUTTON);
     glutMainLoop();
