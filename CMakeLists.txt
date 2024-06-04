@@ -12,7 +12,8 @@ add_executable(koneko main.cpp
         neuralnetwork.h
         stb/stb_image.h
         LoadingMenu.cpp
-        LoadingMenu.h)
+        LoadingMenu.h
+        common.h)
 
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${FREEGLUT_INCLUDE_DIR})

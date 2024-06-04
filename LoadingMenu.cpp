@@ -2,9 +2,21 @@
 // Created by buldu on 2.06.2024.
 //
 
-#include "LoadingMenu.h"
+#include <GL/glew.h>
+#include <windows.h>
+#include <GL/freeglut.h>
+#include <GLFW/glfw3.h>
+#include <cmath>
+#include <string>
+#include <iostream>
+#include <tchar.h>
+#include <io.h>
+#include "stb/stb_image.h"
+#include "common.h"
 
-GLuint texture;
+
+#define STB_IMAGE_IMPLEMENTATION
+
 
 GLuint loadTexture(const char* filename) {
     int width, height, nrChannels;
@@ -32,28 +44,66 @@ GLuint loadTexture(const char* filename) {
     return textureID;
 }
 
-void initGL() {
-    glewExperimental = GL_TRUE;
-    GLenum err = glewInit();
-    if (GLEW_OK != err) {
-        std::cerr << "Error: " << glewGetErrorString(err) << std::endl;
-        exit(1);
-    }
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-    glEnable(GL_TEXTURE_2D);
+void loaddisplay() {
+    glClear(GL_COLOR_BUFFER_BIT);
 
-    // Print working directory
-    char cwd[1024];
-    if (_getcwd(cwd, sizeof(cwd)) != nullptr) {
-        std::cout << "Current working directory: " << cwd << std::endl;
-    } else {
-        perror("_getcwd error");
-    }
+    glBindTexture(GL_TEXTURE_2D, texture);
 
-    // Use the absolute path to your image file
-    const char* imagePath = "C:/Users/buldu/CLionProjects/Koneko/cmake-build-debug/app.png";
-    std::cout << "Loading texture from: " << imagePath << std::endl;
-    texture = loadTexture(imagePath);
-    std::cout << "Texture loaded successfully" << std::endl;
+    glBegin(GL_QUADS);
+    glTexCoord2f(0.0f, 0.0f); glVertex2f(-0.5f, -0.5f);
+    glTexCoord2f(1.0f, 0.0f); glVertex2f(0.5f, -0.5f);
+    glTexCoord2f(1.0f, 1.0f); glVertex2f(0.5f, 0.5f);
+    glTexCoord2f(0.0f, 1.0f); glVertex2f(-0.5f, 0.5f);
+    glEnd();
+
+    glutSwapBuffers();
+}
+
+void drawText(const char *text, int x, int y) {
+    glRasterPos2i(x, y);
+
+    while (*text) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *text);
+        text++;
+    }
+}
+
+void lodinit() {
+    glClearColor(0.0f, 0.0f, 0.0f, 0);
+    glColor3f(color.red, color.green, color.blue);
+    glPointSize(1.0f);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0.0, 1200.0, 0.0, 800.0);
+
+}
+
+void setupDisplay() {
+    drawText("POWERED BY Sentinel Systems", 500, 20);
+}
+
+void loddisplay() {
+    setupDisplay();
+}
+
+void temploader(int argc, char** argv) {
+    glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
+    glutInitWindowPosition(0,0);
+    glutInitWindowSize(1200, 800);
+    glutCreateWindow("System Boot");
+    glutDisplayFunc(loddisplay);
+    lodinit();
+
+
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
+    glutMainLoop();
+
+
+}
+
+
+
+void initLoader(int argc, char** argv) {
+    temploader(argc, argv);
 
 }
