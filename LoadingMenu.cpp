@@ -11,7 +11,6 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 
-// Global variables
 int g_bButton1Down = 0;
 float g_fViewDistance = 0.0;
 float g_yClick = 0.0;
@@ -20,18 +19,699 @@ float g_yClick = 0.0;
 #define FALSE 0
 #define VIEWING_DISTANCE_MIN 1.0
 
-// Button bounds
 float buttonX = 200.0f;
-float buttonY = 200.0f;
-float buttonWidth = 100.0f;
-float buttonHeight = 50.0f;
+float buttonY = 350.0f;
+
+float Buttonalpha = 400.0f;
+float Buttonbeta = 350.0f;
+
+float buttonWidth = 170.0f;
+float buttonHeight = 60.0f;
+
+
+bool buttonClicked = false;
+
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 
 GLuint loadTexture(const char* filename) {
     int width, height, nrChannels;
     unsigned char *data = stbi_load(filename, &width, &height, &nrChannels, 0);
     if (!data) {
-        std::cerr << "Failed to load texture: " << filename << std::endl;
-        std::cerr << "stbi_failure_reason: " << stbi_failure_reason() << std::endl;
+        std::cerr << "Texture load proccess failed " << filename << std::endl;
+        std::cerr << "stdbi " << stbi_failure_reason() << std::endl;
         exit(1);
     }
 
@@ -62,7 +742,21 @@ void drawText(const char *text, float x, float y) {
     }
 }
 
-void drawButton(float x, float y, float width, float height) {
+
+
+//Redirecting to the main Darwin game
+
+void Redirect()
+{
+
+
+
+}
+
+
+
+void drawButton(float x, float y, float width, float height, const char* label) {
+    drawText(label, x + 10.0f, y + 20.0f);
     glColor3f(0.0f, 0.0f, 1.0f);
     glBegin(GL_QUADS);
     glVertex2f(x, y);
@@ -72,16 +766,34 @@ void drawButton(float x, float y, float width, float height) {
     glEnd();
 
     // Draw button text
-    glColor3f(1.0f, 1.0f, 1.0f);
-    drawText("Click Me", x + 10.0f, y + 20.0f);
 }
+
+
+void drawButton2(float x, float y, float width, float height, bool clicked, const char* label) {
+    drawText(label, x + 10.0f, y + 20.0f);
+    if (clicked) {
+        glColor3f(0.0f, 1.0f, 0.0f);
+    } else {
+        glColor3f(1.0f, 0.0f, 0.0f);
+    }
+    glBegin(GL_QUADS);
+    glVertex2f(x, y);
+    glVertex2f(x + width, y);
+    glVertex2f(x + width, y + height);
+    glVertex2f(x, y + height);
+    glEnd();
+
+}
+
 
 void setupDisplay() {
-    drawText("Powered By SS", 500.0f, 120.0f);
+    drawText("Darwin Games BULDUK Version", 250.0f, 700.0f);
+    drawText("Powered By SS", 300.0f, 60.0f);
 
-    // Draw the button
-    drawButton(buttonX, buttonY, buttonWidth, buttonHeight);
+    drawButton(buttonX, buttonY, buttonWidth, buttonHeight, "Boot Game");
+    drawButton2(Buttonalpha, Buttonbeta, buttonWidth, buttonHeight, buttonClicked, "Connect");
 }
+
 
 void MouseButton(int button, int state, int x, int y)
 {
@@ -92,10 +804,21 @@ void MouseButton(int button, int state, int x, int y)
         y = windowHeight - y;
 
 
+
         if (x >= buttonX && x <= buttonX + buttonWidth && y >= buttonY && y <= buttonY + buttonHeight)
         {
-            std::cout << "islevsel" << std::endl;
+            std::cout << "Button 1 clicked" << std::endl;
         }
+
+
+        if(x >= Buttonalpha && x <= Buttonalpha + buttonWidth && y >= Buttonbeta && y <= Buttonbeta + buttonHeight)
+        {
+            buttonClicked = !buttonClicked;
+            std::cout << "Button clicked!" << std::endl;
+            glutPostRedisplay();
+        }
+
+
     }
     else
     {
@@ -141,6 +864,7 @@ void temploader(int argc, char** argv)
         glutInit(&argc, argv);
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
         glutCreateWindow("System Boot");
+        glutReshapeWindow(800, 800);
         glutDisplayFunc(loddDisplay);
         glutMouseFunc(MouseButton);
         glutMotionFunc(MouseMotion);
