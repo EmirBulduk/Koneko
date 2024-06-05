@@ -15,7 +15,9 @@ add_executable(koneko main.cpp
         LoadingMenu.h
         common.h
         ButtonSystem.cpp
-        ButtonSystem.h)
+        ButtonSystem.h
+        GameUI.cpp
+        GameUI.h)
 
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${FREEGLUT_INCLUDE_DIR})

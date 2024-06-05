@@ -1,16 +1,6 @@
 # ninja log v6
 37	139	7390442328785152	CMakeFiles/koneko.dir/neuralnetwork.cpp.obj	facc4d30e34ee4a2
 41	4329	7393130373519870	CMakeFiles/koneko.dir/main.cpp.obj	bc1ac201f47b1f75
-3144	6114	7393158869662904	koneko.exe	bbd8ae8549a58801
-26	3143	7393158838491134	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
+3354	6472	7393161899167865	koneko.exe	bbd8ae8549a58801
+31	3353	7393161865935605	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
 21	1904	7393098417908714	CMakeFiles/koneko.dir/ButtonSystem.cpp.obj	f89ffee12fc9f075
-29	3202	7393159026505182	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
-3203	6160	7393159058252704	koneko.exe	bbd8ae8549a58801
-26	3218	7393159363185403	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
-3219	6451	7393159395112962	koneko.exe	bbd8ae8549a58801
-37	3897	7393159636859301	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
-3899	7760	7393159675476421	koneko.exe	bbd8ae8549a58801
-26	3132	7393159936656513	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
-3134	6388	7393159967724129	koneko.exe	bbd8ae8549a58801
-26	3143	7393160521864278	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	54adc4dd10093bf6
-3145	6849	7393160553046374	koneko.exe	bbd8ae8549a58801
