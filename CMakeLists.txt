@@ -13,7 +13,9 @@ add_executable(koneko main.cpp
         stb/stb_image.h
         LoadingMenu.cpp
         LoadingMenu.h
-        common.h)
+        common.h
+        ButtonSystem.cpp
+        ButtonSystem.h)
 
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${FREEGLUT_INCLUDE_DIR})

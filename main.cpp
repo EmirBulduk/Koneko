@@ -222,7 +222,6 @@ void MainSystemHandler(int argc, char** argv) {
 int main(int argc, char** argv) {
 
 
-    glutInit(&argc, argv);
     initLoader(argc, argv);
     MainSystemHandler( argc, argv);
 
