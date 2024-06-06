@@ -7,6 +7,7 @@
 #include <tchar.h>
 #include <io.h>
 #include "stb/stb_image.h"
+#include "GameUI.h"
 #include "common.h"
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -70,12 +71,17 @@ void drawText(const char *text, float x, float y) {
 
 
 
-//Redirecting to the main Darwin game
 
 void Redirect()
 {
-
-
+   GameUI gameUI;
+   gameUI.mainstream();
+   for (int i = 0; i < 100; i++) {
+       std::cout << "Loading GameUI" << std::endl;
+       printf("...");
+       i++;
+   }
+   std::cout << "gameui mainstream loading ..." << std::endl;
 
 }
 
@@ -91,7 +97,6 @@ void drawButton(float x, float y, float width, float height, const char* label) 
     glVertex2f(x, y + height);
     glEnd();
 
-    // Draw button text
 }
 
 
@@ -134,6 +139,7 @@ void MouseButton(int button, int state, int x, int y)
         if (x >= buttonX && x <= buttonX + buttonWidth && y >= buttonY && y <= buttonY + buttonHeight)
         {
             std::cout << "Button 1 clicked" << std::endl;
+            Redirect();
         }
 
 

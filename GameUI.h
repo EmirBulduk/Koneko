@@ -8,6 +8,8 @@
 
 class GameUI {
 
+public:
+    void mainstream();
 };
 
 

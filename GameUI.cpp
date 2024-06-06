@@ -3,3 +3,9 @@
 //
 
 #include "GameUI.h"
+#include "common.h"
+#include <iostream>
+
+void GameUI::mainstream() {
+    std::cout << "GameUI is working" << std::endl;
+}
