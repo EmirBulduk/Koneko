@@ -9,7 +9,8 @@
 class GameUI {
 
 public:
-    void mainstream();
+
+    static void mainstream(int argc, char **argv);
 };
 
 
