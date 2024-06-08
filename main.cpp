@@ -7,6 +7,7 @@
 #include <iostream>
 #include <tchar.h>
 
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 
@@ -15,8 +16,8 @@
 #include "common.h"
 
 GLuint texture;
-
-
+FT_Library ft;
+FT_Face face;
 
 GLColor colors[7] = {
         {1.0f, 1.0f, 1.0f},
@@ -224,6 +225,18 @@ int main(int argc, char** argv) {
 
     initLoader(argc, argv);
     MainSystemHandler( argc, argv);
+    if (FT_Init_FreeType(&ft)) {
+        std::cerr << "Could not init FreeType Library" << std::endl;
+        return -1;
+    }
 
+    if (FT_New_Face(ft, "path/to/kremlin.ttf", 0, &face)) {
+        std::cerr << "Failed to load font" << std::endl;
+        return -1;
+    }
+
+    FT_Set_Pixel_Sizes(face, 0, 48); // Set the font size
+    FT_Done_Face(face);
+    FT_Done_FreeType(ft);
     return 0;
 }

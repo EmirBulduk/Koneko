@@ -1,10 +1,16 @@
 # ninja log v6
 30	211	7395369960616605	CMakeFiles/koneko.dir/neuralnetwork.cpp.obj	277afd3774bbeb1c
 64	1129	7395369960942706	CMakeFiles/koneko.dir/ConnectionHandler.cpp.obj	abe88a8cc43c06c9
-32	3868	7395446230893001	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	238ecf32ad4f1102
-19	2528	7395469623711006	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
-13	5649	7395369960436128	CMakeFiles/koneko.dir/main.cpp.obj	7501bca3119f77ea
-2638	5930	7395463995262535	koneko.exe	78e6188c1a9f450
+34	2042	7395525802148721	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
+37	2243	7395527417737456	CMakeFiles/koneko.dir/LoadingMenu.cpp.obj	238ecf32ad4f1102
+32	5076	7395502456927262	CMakeFiles/koneko.dir/main.cpp.obj	7501bca3119f77ea
 10	498	7395484421465327	build.ninja	687799411e81538a
-44	2139	7395484423033180	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
-2141	8421	7395484443992457	koneko.exe	d11c5a28e0fd549f
+2245	9639	7395527439814886	koneko.exe	d11c5a28e0fd549f
+18	2291	7395528419565968	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
+2293	7982	7395528442317922	koneko.exe	d11c5a28e0fd549f
+26	2407	7395528712984836	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
+2409	8161	7395528736816553	koneko.exe	d11c5a28e0fd549f
+28	2250	7395529103532500	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
+2252	8737	7395529125768873	koneko.exe	d11c5a28e0fd549f
+26	2250	7395529561979906	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
+2252	8990	7395529584239310	koneko.exe	d11c5a28e0fd549f

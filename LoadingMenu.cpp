@@ -74,12 +74,11 @@ void drawText(const char *text, float x, float y) {
 
 void Redirect()
 {
+    glutHideWindow(); // Hide the current window
+    ShowWindow(GetConsoleWindow(), SW_HIDE);
     GameUI gameUI;
-
-            std::cout << "GameUI Loaded" << std::endl;
-            gameUI.mainstream(0 ,NULL);
-
-
+    std::cout << "GameUI Loaded" << std::endl;
+    gameUI.mainstream(0 ,NULL);
 }
 
 

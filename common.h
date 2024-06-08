@@ -2,7 +2,8 @@
 #define COMMON_H
 
 #include <GL/glew.h>
-
+#include <ft2build.h>
+#include FT_FREETYPE_H
 
 struct Point {
     GLint x;
@@ -16,6 +17,9 @@ struct GLColor {
 };
 
 extern GLuint texture;
+
+extern FT_Library ft;
+extern FT_Face face;
 
 
 extern GLColor colors[7];
