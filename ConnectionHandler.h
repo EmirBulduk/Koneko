@@ -18,10 +18,7 @@ private:
 
 public:
 
-
-
-
-
+    void connectToServer();
 };
 
 

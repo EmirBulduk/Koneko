@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/addr2line.exe"
+			"value" : "C:/mingw64/bin/addr2line.exe"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/ar.exe"
+			"value" : "C:/mingw64/bin/ar.exe"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -155,7 +155,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/g++.exe"
+			"value" : "C:/mingw64/bin/c++.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -171,7 +171,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/gcc-ar.exe"
+			"value" : "C:/mingw64/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -187,7 +187,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/gcc-ranlib.exe"
+			"value" : "C:/mingw64/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -299,7 +299,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/gcc.exe"
+			"value" : "C:/mingw64/bin/gcc.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -315,7 +315,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/gcc-ar.exe"
+			"value" : "C:/mingw64/bin/gcc-ar.exe"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_RANLIB",
@@ -331,7 +331,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/gcc-ranlib.exe"
+			"value" : "C:/mingw64/bin/gcc-ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_C_FLAGS",
@@ -443,7 +443,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/dlltool.exe"
+			"value" : "C:/mingw64/bin/dlltool.exe"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -687,7 +687,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/ld.exe"
+			"value" : "C:/mingw64/bin/ld.exe"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -795,7 +795,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/nm.exe"
+			"value" : "C:/mingw64/bin/nm.exe"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -823,7 +823,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/objcopy.exe"
+			"value" : "C:/mingw64/bin/objcopy.exe"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -839,7 +839,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/objdump.exe"
+			"value" : "C:/mingw64/bin/objdump.exe"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -903,7 +903,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/ranlib.exe"
+			"value" : "C:/mingw64/bin/ranlib.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -919,7 +919,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/windres.exe"
+			"value" : "C:/mingw64/bin/windres.exe"
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER_WORKS",
@@ -1027,7 +1027,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/readelf.exe"
+			"value" : "C:/mingw64/bin/readelf.exe"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1247,7 +1247,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/buldu/AppData/Local/Programs/CLion/bin/mingw/bin/strip.exe"
+			"value" : "C:/mingw64/bin/strip.exe"
 		},
 		{
 			"name" : "CMAKE_TAPI",
@@ -1320,6 +1320,18 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "[TRUE][v()]"
+		},
+		{
+			"name" : "FTGL_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "The directory containing a CMake configuration file for FTGL."
+				}
+			],
+			"type" : "PATH",
+			"value" : "C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/share/ftgl"
 		},
 		{
 			"name" : "FreeGLUT_DIR",

@@ -294,6 +294,22 @@
 		{
 			"isExternal" : true,
 			"path" : "C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/share/freeglut/FreeGLUTTargets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/share/ftgl/FTGLConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/share/ftgl/FTGL-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/share/ftgl/FTGL-targets-debug.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/buldu/.vcpkg-clion/vcpkg/installed/x64-windows/share/ftgl/FTGL-targets-release.cmake"
 		}
 	],
 	"kind" : "cmakeFiles",

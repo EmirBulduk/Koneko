@@ -6,6 +6,7 @@ find_package(soil2 CONFIG REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(FreeGLUT CONFIG REQUIRED)
+find_package(FTGL CONFIG REQUIRED)
 
 add_executable(koneko main.cpp
         neuralnetwork.cpp
@@ -25,5 +26,6 @@ link_directories(${GLEW_LIBRARY_DIRS})
 
 target_link_libraries(koneko PRIVATE $<IF:$<TARGET_EXISTS:FreeGLUT::freeglut>,FreeGLUT::freeglut,FreeGLUT::freeglut_static>)
 target_link_libraries(koneko PRIVATE ${GLUT_LIBRARY} ${OPENGL_LIBRARY} ${GLEW_LIBRARIES})
+target_link_libraries(koneko PRIVATE ftgl)
 target_link_libraries(koneko PRIVATE soil2)
 target_link_libraries(koneko PRIVATE glfw)

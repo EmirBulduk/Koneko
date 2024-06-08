@@ -75,16 +75,10 @@ void drawText(const char *text, float x, float y) {
 void Redirect()
 {
     GameUI gameUI;
-    std::cout << "Loading GameUI" << std::endl;
-    for (int i = 0; i <= 20; i++) {
-        Sleep(150);
-        printf("Loading Proccess %d\n", i);
-        if(i == 20) {
-            std::cout << "GameUI Loaded" << std::endl;
 
+            std::cout << "GameUI Loaded" << std::endl;
             gameUI.mainstream(0 ,NULL);
-        }
-   }
+
 
 }
 
