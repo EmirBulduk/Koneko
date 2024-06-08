@@ -10,7 +10,11 @@ class GameUI {
 
 public:
 
+    void ArenaDesign();
+    void StatusBar();
+    void GameState();
     static void mainstream(int argc, char **argv);
+
 };
 
 
