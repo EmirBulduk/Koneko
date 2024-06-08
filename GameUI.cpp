@@ -174,7 +174,7 @@ void sinit() {
     {
         initialized = 1;
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-        glutCreateWindow("System Boot");
+        glutCreateWindow("DARWIN BULDUK");
         glutReshapeWindow(1200, 800);
         glutDisplayFunc(lDisplay);
         glutMouseFunc(MButton);
