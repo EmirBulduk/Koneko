@@ -18,7 +18,9 @@ add_executable(koneko main.cpp
         GameUI.cpp
         GameUI.h
         ConnectionHandler.cpp
-        ConnectionHandler.h)
+        ConnectionHandler.h
+        circle.cpp
+        circle.h)
 
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${FREEGLUT_INCLUDE_DIR})

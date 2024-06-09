@@ -10,6 +10,7 @@
 #include <iostream>
 #include <tchar.h>
 #include <io.h>
+#include <cmath>
 #include "stb/stb_image.h"
 #include "GameUI.h"
 #include "common.h"
@@ -20,8 +21,10 @@ int G_bButton1Down = 0;
 
 #define TRUE 1
 #define FALSE 0
+const float PI = 3.14159265358979323846;
 
-
+const int windowWidth = 1200;
+const int windowHeight = 800;
 
 float buttonX2 = 200.0f;
 float buttonY2 = 350.0f;
@@ -34,6 +37,28 @@ float buttonHeight2 = 60.0f;
 
 bool buttonClicked2 = false;
 
+void drawCircle(float cx, float cy, float r, int num_segments) {
+    glBegin(GL_TRIANGLE_FAN);
+    for (int i = 0; i <= num_segments; i++) {
+        float theta = 2.0f * PI * float(i) / float(num_segments);
+        float x = r * cosf(theta);
+        float y = r * sinf(theta);
+        glVertex2f(x + cx, y + cy);
+    }
+    glEnd();
+}
+
+
+void drawThinRing(float cx, float cy, float outer_radius, int num_segments) {
+    glBegin(GL_LINE_LOOP);
+    for (int i = 0; i <= num_segments; i++) {
+        float theta = 2.0f * PI * float(i) / float(num_segments);
+        float x = outer_radius * cosf(theta);
+        float y = outer_radius * sinf(theta);
+        glVertex2f(x + cx, y + cy);
+    }
+    glEnd();
+}
 
 
 void initFreeType() {
@@ -130,13 +155,43 @@ void GameUI::GameState() {
     drawText2("Game State", 200.0f, 393.0f);
 }
 
-
+void timer(int value) {
+    glutPostRedisplay(); // Request display update
+    glutTimerFunc(16, timer, 0); // Call this function again in 16 milliseconds
+}
 void sDisplay() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
     GameUI GUI;
     GUI.ArenaDesign();
     GUI.StatusBar();
     GUI.GameState();
 
+    glColor3f(1.0, 0.5, 0.0); // Orange color
+    drawCircle(windowWidth / 2, windowHeight / 2, 15, 100);
+
+    // Draw the orbiting circle
+    static float angle = 0.0f;
+    float orbitRadius = 25.0f;
+    float x = windowWidth / 2 + orbitRadius * cos(angle);
+    float y = windowHeight / 2 + orbitRadius * sin(angle);
+    drawCircle(x, y, 2, 100);
+
+    for(int i = 0; i < 360; i += 45)
+    {
+        //start this circle 1second later
+        x = windowWidth / 2 + orbitRadius * cos(angle + i);
+        y = windowHeight / 2 + orbitRadius * sin(angle + i);
+        drawCircle(x, y, 2, 100);
+    }
+
+
+    glColor3f(0.7, 0.5, 0.0);
+    glAlphaFunc(GL_GREATER, 0.1f);
+    drawThinRing( windowWidth/ 2, windowHeight / 2, 25, 100);
+
+
+        angle += 0.01f;
 }
 
 
@@ -163,6 +218,8 @@ void dinit()
 {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glEnable(GL_DEPTH_TEST);
+
+
 }
 
 
@@ -180,6 +237,7 @@ void sinit() {
         glutMouseFunc(MButton);
         glutMotionFunc(mMotion);
         dinit();
+        glutTimerFunc(0, timer, 0);
 
         glutMainLoop();
     }
