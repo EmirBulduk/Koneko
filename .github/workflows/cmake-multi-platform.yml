@@ -47,6 +47,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+  - name: Install GLFW3 (Ubuntu)
+    run: |
+    sudo apt-get update
+    sudo apt-get install libglfw3-dev
+     if: runner.os == 'ubuntu-latest'
+  
+
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
