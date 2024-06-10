@@ -188,7 +188,6 @@ void sinit() {
         glutMouseFunc(MButton);
         glutMotionFunc(mMotion);
         dinit();
-        glutTimerFunc(0, timer, 0);
 
         glutMainLoop();
     }

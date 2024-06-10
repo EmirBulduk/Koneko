@@ -19,7 +19,7 @@ float g_yClick = 0.0;
 
 const float PI = 3.14159265358979323846;
 
-const int windowWidth = 1200;
+const int windowWidth = 800;
 const int windowHeight = 800;
 
 #define TRUE 1
@@ -148,6 +148,38 @@ void setupDisplay() {
     drawText("Darwin Games BULDUK Version", 250.0f, 700.0f);
     drawText("Powered By SS", 300.0f, 60.0f);
 
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glEnable(GL_DEPTH_TEST);
+
+
+
+    float centerX = windowWidth / 2 - 25;
+    float centerY = windowHeight / 2 + 200;
+    glColor3f(1.0, 0.5, 0.0);
+
+    static float angle = 0.0f;
+    float orbitRadius = 25.0f;
+    float x = centerX + orbitRadius * cos(angle);
+    float y = centerY + orbitRadius * sin(angle);
+
+    drawCircle(x, y, 2, 100);
+    drawCircle(centerX, centerY, 15, 100);
+    for(int i = 0; i < 360; i += 46)
+    {
+        x = centerX + orbitRadius * cos(angle + i);
+        y = centerY + orbitRadius * sin(angle + i);
+        drawCircle(x, y, 2, 100);
+        i++;
+    }
+
+
+    glColor3f(0.7, 0.5, 0.0);
+    glAlphaFunc(GL_GREATER, 0.1f);
+    drawThinRing( centerX, centerY, 25, 100);
+
+
+    angle += 0.01f;
+
     drawButton(buttonX, buttonY, buttonWidth, buttonHeight, "Boot Game");
     drawButton2(Buttonalpha, Buttonbeta, buttonWidth, buttonHeight, buttonClicked, "Connect");
 
@@ -208,6 +240,8 @@ void loddDisplay()
 
     setupDisplay();
     glutSwapBuffers();
+
+
 }
 
 void Init()
