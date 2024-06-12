@@ -37,6 +37,14 @@ float buttonHeight2 = 60.0f;
 
 bool buttonClicked2 = false;
 
+GameUI GUI;  // Single instance of GameUI
+
+
+std::string timeString;
+std::string phases = "Phase 1";
+int time = 0;
+int min = 0;
+int hr = 0;
 
 
 void initFreeType() {
@@ -107,6 +115,8 @@ void sDisplay() {
 
 
 
+
+
 void GameUI::ArenaDesign() {
     drawText2("Arena", 830.0f, 670.0f);
     glLineWidth(3.5);
@@ -126,13 +136,27 @@ void GameUI::ArenaDesign() {
     glEnd();
 }
 
+void repeater() {
 
+
+    timeString = std::to_string(hr) + ":" + std::to_string(min) + ":" + std::to_string(time);
+    std::cout << timeString << std::endl;
+
+
+
+}
 
 void GameUI::StatusBar() {
     drawText2("Status Bar", 200.0f, 780.0f);
+    //PTP
     drawText2("Phase", 60.0f, 703.0f);
     drawText2("Player", 60.0f, 640.0f);
     drawText2("Time", 60.0f, 680.0f);
+
+    drawText2(phases.c_str(), 200.0f, 703.0f);
+    drawText2("Player 1", 200.0f, 640.0f);
+    drawText2(timeString.c_str(), 200.0f, 680.0f);
+
 
     glBegin(GL_LINE_LOOP);
     glVertex2f(22.0f, 767.0f);
@@ -155,6 +179,24 @@ void GameUI::GameState() {
 
 
 
+void insidetimer() {
+    //timer ticking and changing value
+
+    time++;
+    if (time == 60) {
+        time = 0;
+        min++;
+    }
+    if (min == 60) {
+        min = 0;
+        hr++;
+    }
+
+
+}
+
+
+
 void lDisplay() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -165,15 +207,30 @@ void lDisplay() {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
+    insidetimer();
+    repeater();
+
+
+
+
     sDisplay();
     glutSwapBuffers();
+
+
 }
 
 
 
+//timer to callback
+void GTimer(int value) {
+    glutPostRedisplay();
+    glutTimerFunc(16, GTimer, 0); //her 16 milisaniyede tekrar çalışıcak
+}
+
+
 
 //init
-void dinit()
+void GameUI::init()
 {
     glClearColor(0.0, 0.0, 0.0, 1.0);
     glEnable(GL_DEPTH_TEST);
@@ -182,12 +239,10 @@ void dinit()
 }
 
 
-
 //second init
-void sinit() {
+void ProgramInit() {
     static int initialized = 0;
-    if (!initialized)
-    {
+    if (!initialized) {
         initialized = 1;
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
         glutCreateWindow("DARWIN BULDUK");
@@ -195,16 +250,14 @@ void sinit() {
         glutDisplayFunc(lDisplay);
         glutMouseFunc(MButton);
         glutMotionFunc(mMotion);
-        dinit();
-
+        GUI.init();
+        glutTimerFunc(0, GTimer, 0);
         glutMainLoop();
     }
 }
 
-//mainstream Ana akış sistemi
 void GameUI::mainstream(int argc, char** argv) {
     std::cout << "GameUI is working" << std::endl;
     initFreeType();
-    sinit();
-
+    ProgramInit();
 }

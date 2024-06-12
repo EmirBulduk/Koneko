@@ -13,6 +13,9 @@ public:
     void ArenaDesign();
     void StatusBar();
     void GameState();
+    void repeater();
+    void insidetimer();
+    void init();
     static void mainstream(int argc, char **argv);
 
 };
