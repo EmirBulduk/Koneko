@@ -92,6 +92,21 @@ void MButton(int button, int state, int x, int y)
 
 
 
+
+
+void sDisplay() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    GameUI GUI;
+    GUI.ArenaDesign();
+    GUI.StatusBar();
+    GUI.GameState();
+
+
+}
+
+
+
 void GameUI::ArenaDesign() {
     drawText2("Arena", 830.0f, 670.0f);
     glLineWidth(3.5);
@@ -128,21 +143,14 @@ void GameUI::StatusBar() {
 }
 
 
-
 void GameUI::GameState() {
     drawText2("Game State", 200.0f, 393.0f);
-}
-
-
-void sDisplay() {
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    GameUI GUI;
-    GUI.ArenaDesign();
-    GUI.StatusBar();
-    GUI.GameState();
-
-
+    glBegin(GL_LINE_LOOP);
+    glVertex2f(22.0f, 352.0f);
+    glVertex2f(458.0f, 352.0f);
+    glVertex2f(458.0f, 85.0f);
+    glVertex2f(22.0f, 85.0f);
+    glEnd();
 }
 
 
