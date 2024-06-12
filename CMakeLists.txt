@@ -20,7 +20,9 @@ add_executable(koneko main.cpp
         ConnectionHandler.cpp
         ConnectionHandler.h
         circle.cpp
-        circle.h)
+        circle.h
+        arayuz/playersignin.cpp
+        arayuz/playersignin.h)
 
 include_directories(${OPENGL_INCLUDE_DIR})
 include_directories(${FREEGLUT_INCLUDE_DIR})

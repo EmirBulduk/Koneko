@@ -1,4 +1,4 @@
 C:\Users\buldu\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=C:/Users/buldu/AppData/Local/Programs/CLion/bin/ninja/win/x64/ninja.exe -DCMAKE_TOOLCHAIN_FILE=C:\Users\buldu\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake -G Ninja -S C:\Users\buldu\CLionProjects\Koneko -B C:\Users\buldu\CLionProjects\Koneko\cmake-build-debug
--- Configuring done (1.0s)
+-- Configuring done (0.3s)
 -- Generating done (0.0s)
 -- Build files have been written to: C:/Users/buldu/CLionProjects/Koneko/cmake-build-debug

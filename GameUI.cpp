@@ -100,8 +100,6 @@ void MButton(int button, int state, int x, int y)
 
 
 
-
-
 void sDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);
 
@@ -112,9 +110,6 @@ void sDisplay() {
 
 
 }
-
-
-
 
 
 void GameUI::ArenaDesign() {
@@ -136,15 +131,20 @@ void GameUI::ArenaDesign() {
     glEnd();
 }
 
+
+
+
+
+
 void repeater() {
 
 
     timeString = std::to_string(hr) + ":" + std::to_string(min) + ":" + std::to_string(time);
     std::cout << timeString << std::endl;
 
-
-
 }
+
+
 
 void GameUI::StatusBar() {
     drawText2("Status Bar", 200.0f, 780.0f);
@@ -210,9 +210,6 @@ void lDisplay() {
     insidetimer();
     repeater();
 
-
-
-
     sDisplay();
     glutSwapBuffers();
 
@@ -224,7 +221,7 @@ void lDisplay() {
 //timer to callback
 void GTimer(int value) {
     glutPostRedisplay();
-    glutTimerFunc(16, GTimer, 0); //her 16 milisaniyede tekrar çalışıcak
+    glutTimerFunc(16000, GTimer, 0); //her 16 milisaniyede tekrar çalışıcak
 }
 
 
