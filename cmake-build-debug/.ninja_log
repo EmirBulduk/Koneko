@@ -7,3 +7,6 @@
 37	924	7396663815785022	CMakeFiles/koneko.dir/circle.cpp.obj	ac0df69c74142abe
 65	1541	7399141744704275	build.ninja	687799411e81538a
 2102	7844	7399140032886412	koneko.exe	b4f3c53a501ce66e
+38	2905	7399226515964996	CMakeFiles/koneko.dir/GameUI.cpp.obj	2acd61b935acdebc
+49	634	7399226622982250	CMakeFiles/koneko.dir/arayuz/playersignin.cpp.obj	4bac939e46537c7e
+636	6711	7399226628852061	koneko.exe	72f98c214ce00e4
