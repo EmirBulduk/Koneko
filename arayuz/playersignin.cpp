@@ -3,7 +3,6 @@
 //
 
 #include <iostream>
-#include <sql.h>
 #include "playersignin.h"
 
 
